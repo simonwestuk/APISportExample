@@ -25,12 +25,20 @@ function getAPIData()
 
             document.getElementById('search-text').value = null;
 
+            document.getElementById('search-items').remove();
+
+            var divNode = document.createElement("DIV");
+
+            divNode.id = 'search-items';
+
+            document.getElementById("results-items").appendChild(divNode);
+
             for (var i in data.event)
             {
                 var node = document.createElement("H2");
                 var textnode = document.createTextNode(data.event[i].strEvent + ' ' + data.event[i].dateEvent + ' ' + data.event[i].strTime);
                 node.appendChild(textnode);
-                document.getElementById("results").appendChild(node);
+                document.getElementById("search-items").appendChild(node);
             }
 
 
